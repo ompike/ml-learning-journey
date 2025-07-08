@@ -1,0 +1,17 @@
+
+# 在每个Python文件开头添加这些配置代码
+
+import matplotlib.pyplot as plt
+import matplotlib
+import platform
+
+# 设置中文字体
+system = platform.system()
+if system == "Darwin":  # macOS
+    plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'Heiti TC', 'STHeiti']
+elif system == "Windows":  # Windows
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'KaiTi']
+else:  # Linux
+    plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei', 'DejaVu Sans']
+
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题

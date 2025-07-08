@@ -1,0 +1,7 @@
+# 最小化依赖包 - 用于网络问题时的替代方案
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+scikit-learn
