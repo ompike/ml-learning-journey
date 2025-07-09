@@ -128,30 +128,221 @@ ml-learning-journey/
 - **模型优化**: 剪枝、量化、模型部署
 - **综合项目**: 完整深度学习应用开发
 
-## 开始学习
+## 🚀 快速开始
 
 ### 🚨 重要：先设置虚拟环境！
 
-1. **设置虚拟环境**：
+1. **克隆项目**：
    ```bash
+   git clone https://github.com/ompike/ml-learning-journey.git
    cd ml-learning-journey
-   python -m venv ml-env
-   source ml-env/bin/activate  # macOS/Linux
-   # 或 ml-env\Scripts\activate  # Windows
    ```
 
-2. **安装依赖**：
+2. **设置虚拟环境**：
+   ```bash
+   # 创建虚拟环境
+   python -m venv ml-env
+   
+   # 激活虚拟环境
+   source ml-env/bin/activate      # macOS/Linux
+   # 或者
+   ml-env\Scripts\activate         # Windows
+   ```
+
+3. **安装依赖**：
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **开始学习**：
+4. **修复中文字体（可选）**：
    ```bash
-   cd stage1-python-basics
-   python 01_numpy_basics.py
+   python fix_chinese_font.py
    ```
 
-详细环境设置请参考 [setup.md](setup.md)
+5. **开始学习**：
+   ```bash
+   # 阶段1：Python基础
+   cd stage1-python-basics
+   python 01_numpy_basics.py
+   python 02_pandas_practice.py
+   python 03_matplotlib_visualization.py
+   python 04_data_analysis_project.py
+   
+   # 阶段2：数学基础
+   cd ../stage2-math-fundamentals
+   python 01_linear_algebra.py
+   python 02_probability_theory.py
+   # ... 继续其他文件
+   
+   # 阶段3：经典算法
+   cd ../stage3-classic-algorithms
+   python 01_linear_regression.py
+   python 02_logistic_regression.py
+   # ... 继续其他文件
+   
+   # 阶段4：Scikit-learn实践
+   cd ../stage4-sklearn-practice
+   python 01_sklearn_basics.py
+   python 02_feature_engineering.py
+   # ... 继续其他文件
+   
+   # 阶段5：深度学习
+   cd ../stage5-deep-learning
+   python 01_neural_network_basics.py
+   python 02_framework_basics.py
+   # ... 继续其他文件
+   ```
+
+## 💻 运行指南
+
+### 🔧 自动化脚本（推荐）
+
+项目提供了多个便捷的脚本来简化环境设置和运行：
+
+#### 1. 一键环境设置
+```bash
+# Linux/macOS
+./start.sh
+
+# Windows
+start.bat
+```
+
+#### 2. 激活学习环境
+```bash
+# 使用conda环境（推荐）
+./start_learning.sh
+
+# 或者激活虚拟环境
+./activate_env.sh
+```
+
+#### 3. 运行特定课程
+```bash
+# 使用便捷脚本运行任何课程文件
+./run_lesson.sh stage1-python-basics/01_numpy_basics.py
+./run_lesson.sh stage2-math-fundamentals/01_linear_algebra.py
+./run_lesson.sh stage3-classic-algorithms/01_linear_regression.py
+
+# 不带参数查看帮助
+./run_lesson.sh
+```
+
+### 📋 手动运行方式
+
+#### 单独运行文件
+```bash
+# 确保在正确的目录下
+cd stage1-python-basics
+python 01_numpy_basics.py
+
+# 或者使用绝对路径
+python /path/to/ml-learning-journey/stage1-python-basics/01_numpy_basics.py
+```
+
+#### 批量运行阶段文件
+```bash
+# 运行整个阶段的所有文件
+cd stage1-python-basics
+for file in *.py; do
+    echo "运行: $file"
+    python "$file"
+    echo "完成: $file"
+    echo "---"
+done
+```
+
+#### 在Jupyter Notebook中运行
+```bash
+# 安装Jupyter
+pip install jupyter
+
+# 启动Jupyter Notebook
+jupyter notebook
+
+# 在浏览器中打开文件，将.py文件内容复制到notebook中运行
+```
+
+#### 使用IPython交互式运行
+```bash
+# 安装IPython
+pip install ipython
+
+# 启动IPython
+ipython
+
+# 在IPython中运行文件
+%run stage1-python-basics/01_numpy_basics.py
+```
+
+### 🌟 推荐工作流程
+
+1. **首次设置**：
+   ```bash
+   # 克隆项目
+   git clone https://github.com/ompike/ml-learning-journey.git
+   cd ml-learning-journey
+   
+   # 一键环境设置
+   ./start.sh  # Linux/macOS
+   # 或 start.bat  # Windows
+   ```
+
+2. **每次学习前**：
+   ```bash
+   # 激活学习环境
+   ./start_learning.sh
+   ```
+
+3. **运行课程**：
+   ```bash
+   # 使用便捷脚本
+   ./run_lesson.sh stage1-python-basics/01_numpy_basics.py
+   ```
+
+4. **遇到问题时**：
+   ```bash
+   # 查看故障排除指南
+   cat troubleshooting.md
+   
+   # 或修复字体问题
+   python fix_chinese_font.py
+   ```
+
+## 🔍 项目验证
+
+### 验证环境配置
+```bash
+# 检查Python版本
+python --version  # 应该是3.8+
+
+# 检查关键包是否安装
+python -c "import numpy, pandas, matplotlib, sklearn; print('✅ 基础包安装成功')"
+
+# 检查深度学习包（阶段5需要）
+python -c "import torch, tensorflow; print('✅ 深度学习包安装成功')"
+```
+
+### 运行测试脚本
+```bash
+# 测试所有基础功能
+python -c "
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_classification
+print('✅ 所有基础包工作正常')
+"
+```
+
+### 检查文件完整性
+```bash
+# 检查所有文件是否存在
+find . -name "*.py" | wc -l  # 应该显示37个文件
+
+# 列出所有Python文件
+find . -name "*.py" | sort
+```
 
 ## 📋 学习建议
 
@@ -177,7 +368,7 @@ ml-learning-journey/
 
 ## 🔧 故障排除
 
-### 常见问题及解决方案
+### 快速解决方案
 
 #### 1. 中文字体显示问题
 **问题**: matplotlib图表中中文显示为方块
@@ -187,14 +378,32 @@ python fix_chinese_font.py
 ```
 
 #### 2. 包依赖问题
-**问题**: 缺少某些Python包
+**问题**: ModuleNotFoundError 或包缺失
 ```bash
 # 解决方案
 pip install -r requirements.txt
 pip install --upgrade pip
+
+# 或使用最小依赖
+pip install -r requirements-minimal.txt
+
+# 使用国内镜像（网络问题时）
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-#### 3. CUDA/GPU问题 (深度学习阶段)
+#### 3. 环境激活问题
+**问题**: 虚拟环境未激活或损坏
+```bash
+# 使用自动化脚本
+./start_learning.sh      # conda环境
+./activate_env.sh        # 虚拟环境
+
+# 或手动激活
+source ml-env/bin/activate  # Linux/macOS
+ml-env\Scripts\activate     # Windows
+```
+
+#### 4. CUDA/GPU问题 (深度学习阶段)
 **问题**: PyTorch无法使用GPU
 ```bash
 # 检查CUDA是否可用
@@ -204,11 +413,61 @@ python -c "import torch; print(torch.cuda.is_available())"
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-#### 4. 内存不足问题
+#### 5. 内存不足问题
 **问题**: 运行大型模型时内存不足
 - 减少batch_size
 - 使用数据生成器而非全量加载
 - 关闭不必要的程序
+
+### 📋 详细故障排除指南
+
+项目包含完整的故障排除文档，涵盖所有常见问题：
+
+```bash
+# 查看完整的故障排除指南
+cat troubleshooting.md
+
+# 或在浏览器中打开
+open troubleshooting.md  # macOS
+xdg-open troubleshooting.md  # Linux
+```
+
+**troubleshooting.md 包含：**
+- 网络连接问题解决方案
+- 权限错误处理
+- 虚拟环境重建流程
+- Python版本兼容性问题
+- 快速诊断脚本
+- 完整重装流程
+
+### 📚 其他文档资源
+
+项目还包含其他有用的文档：
+
+```bash
+# 快速开始指南（简化版）
+cat QUICK_START.md
+
+# 详细使用说明
+cat HOW_TO_USE.md
+
+# 完整指南
+cat COMPLETE_GUIDE.md
+
+# 环境设置详解
+cat setup.md
+
+# 简化版README
+cat README_SIMPLE.md
+```
+
+**各文档用途：**
+- **QUICK_START.md**: 最简化的快速开始指南
+- **HOW_TO_USE.md**: 详细的使用说明和最佳实践
+- **COMPLETE_GUIDE.md**: 完整的学习指南和高级技巧
+- **setup.md**: 环境设置的详细说明
+- **troubleshooting.md**: 完整的故障排除指南
+- **README_SIMPLE.md**: 简化版项目说明
 
 ## 📊 项目统计
 
